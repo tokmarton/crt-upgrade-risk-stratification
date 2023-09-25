@@ -1,79 +1,89 @@
 import numpy as np
 from sklearn.preprocessing import FunctionTransformer, StandardScaler, MinMaxScaler, Normalizer, RobustScaler
+from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import SimpleImputer, IterativeImputer
+
 
 def get_normalizer(normalizer_name: str):
 	"""
-	Initiates a normalizer instance
+	Initializes a normalizer instance
 
 	Parameters
 	----------
-	normalizer_name: str
+	normalizer_name : str
 		Name of the normalizer
 
 	Returns
 	-------
-	normalizer: object
+	normalizer : object
 		Normalizer object
 	"""
+
 	if normalizer_name == 'standard':
 		return StandardScaler()
-	if normalizer_name == 'l1':
+	elif normalizer_name == 'l1':
 		return Normalizer(norm='l1')
-	if normalizer_name == 'l2':
+	elif normalizer_name == 'l2':
 		return Normalizer(norm='l2')
-	if normalizer_name == 'minmax':
+	elif normalizer_name == 'minmax':
 		return MinMaxScaler()
-	if normalizer_name == 'robust':
+	elif normalizer_name == 'robust':
 		return RobustScaler()
-	if normalizer_name is None:
+	elif normalizer_name == '':
 		return FunctionTransformer()
-	raise ValueError(f'Normalizer {normalizer_name} is not supported')
+	else:
+		raise ValueError(f'Normalizer {normalizer_name} is not supported!')
 
-def get_real_imputer(imputer_name, random_state=None):
+
+def get_continuous_imputer(imputer_name, random_state=42):
 	"""
-	Initiates an imputer for real variables
+	Initializes an imputer for continuous variables
 
 	Parameter
 	---------
-	imputer_name: str
-		Name of the mipute method
+	imputer_name : str
+		Name of the imputation method
 	
-	random_state: int
+	random_state : int
 		Random seed to make the iterative imputer deterministic
 
 	Returns
 	-------
-	imputer: object
-		Imputer object
+	imputer : object
+		An imputer object
 	"""
+
 	if imputer_name == 'iterative':
 		return IterativeImputer(max_iter=1000, random_state=random_state)
-	if imputer_name == 'mean':
+	elif imputer_name == 'mean':
 		return SimpleImputer(missing_values=np.nan, strategy='mean')
-	if imputer_name == 'external':
+	elif imputer_name == 'external':
 		return SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=-1)
-	raise ValueError(f'Imputer {imputer_name} is not suppoerted')
+	else:
+		raise ValueError(f'Imputer {imputer_name} is not supported.')
+
 
 def get_categorical_imputer(imputer_name):
 	"""
-	Initiates an imputer for categorical variables
+	Initializes an imputer for categorical variables
 
 	Parameter
 	---------
-	imputer_name: str
-		Name of the mipute method
+	imputer_name : str
+		Name of the imputation method
 	
-	random_state: int
+	random_state : int
 		Random seed to make the iterative imputer deterministic
 
 	Returns
 	-------
-	imputer: object
-		Imputer object
+	imputer : object
+		An imputer object
 	"""
+
 	if imputer_name == 'most_frequent':
 		return SimpleImputer(missing_values=np.nan, strategy='most_frequent')
-	if imputer_name == 'external':
+	elif imputer_name == 'external':
 		return SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=-1)
-	raise ValueError(f'Imputer {imputer_name} is not suppoerted')
+	else:
+		raise ValueError(f'Imputer {imputer_name} is not supported.')

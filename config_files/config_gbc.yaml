@@ -1,0 +1,28 @@
+cv: 5
+random_state: 42
+n_jobs: 10
+model: 'gbc'
+scoring: 'balanced_accuracy'
+do_feature_selection: False
+hyperparameters:
+  loss: ['log_loss']
+  learning_rate: [1, 0.1, 0.01]
+  n_estimators: [25, 50, 100]
+  max_depth: [2, 5, 10, 20]
+  min_samples_split: [0.1, 0.5, 1.0]
+  min_samples_leaf: [0.1, 0.3, 0.5]
+  max_features: ['sqrt']
+
+preprocess:
+  target_column: 'risk_group'
+  normalizer: 'standard' #[standard, l1, l2, minmax, robust, null]
+  drop_threshold: 0.8
+  categorical_impute: 'most_frequent'
+  continuous_impute: 'iterative'
+  balancing_method: 'null' #[smote, weighted, null]
+  
+feature_selection_params:
+  step: 2
+  min_features: 6
+  max_features: 16
+  score_threshold: 0.95
