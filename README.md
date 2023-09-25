@@ -9,7 +9,7 @@ The primary purpose of this repository is to enable the risk stratification of p
 
 This repository enables contains the codes to train and validate the training and validation of machine-learning models for multi-class classification. 
 
-The repository was forked from `szadam96/framework-for-binary-classification`. The upstream repository is thoroughly described in the following paper:
+The repository was forked from `szadam96\framework-for-binary-classification`. The upstream repository has been thoroughly described previously:
 > [**A machine learning framework for performing binary classification on tabular biomedical data**](https://doi.org/10.1556/1647.2023.00109)<br/>
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
@@ -20,9 +20,9 @@ The repository was forked from `szadam96/framework-for-binary-classification`. T
   1) Clone the repository
   2) Create a virtual environment in Python (version 3.9.13) and activate it
   3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
-```
-pip install -r requirements.txt
-```
+     ```
+     pip install -r requirements.txt
+     ```
 
 ## Usage
 
