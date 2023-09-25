@@ -1,8 +1,12 @@
 # ML-based risk stratification of patients undergoing CRT upgrade
-This repository contains the codes to train and validate the machine-learning models described in the following paper:
+
+
+This repository enables the training and validation of machine-learning models for multi-class classification. contains the codes to train and validate the machine-learning models described in the following paper:
 > [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://www.nature.com/srep/)<br/>
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Szijártó Ádám, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b>
+
+The repository was forked from `LICENSE.md`
 
 ## Installation
   1) Clone the repository
@@ -11,11 +15,14 @@ This repository contains the codes to train and validate the machine-learning mo
 ```
 pip install -r requirements.txt
 ```
+
 ## Usage
-### Training
-You can train and evaluating a new model from scratch on your training data using the following command:
+
+
+### Risk stratification of new patients using the trained model
+To risk stratify new patients using our model described in the above-referenced paper, you should run the following command:
 ```
-python run.py --data PATH_TO_DATA_CSV --target_folder TARGET_FOLDER --config_path PATH_TO_CONFIG_YAML [--calculate_feature_importances] train
+python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
 Where ```PATH_TO_DATA_CSV``` is the path to the training data in a csv format, ```TARGET_FOLDER``` is the name of the folder the results will be saved, and ```PATH_TO_CONFIG_YAML``` is the yaml file containing the cofigurations of the training. An example config file has been provided. The feature importances of the model can be calculated using the SHAP library by using the ```--calculate_feature_importances``` flag.
 ### Risk stratifying new patients using the trained model
@@ -35,3 +42,11 @@ For further information, please run the following command: <br>
 ```
 python main.py --help
 ```
+
+## Contact
+
+
+For inquiries related to the content of this repository, contact Márton Tokodi, M.D., Ph.D. (tok<!--
+-->mar<!--
+-->ton[at]gmail.co<!--
+-->m).
