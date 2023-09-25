@@ -7,12 +7,28 @@ The primary purpose of this repository is to enable the risk stratification of p
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b>
 
-This repository enables contains the codes to train and validate the training and validation of machine-learning models for multi-class classification. 
+
+Briefly, we identified 3 risk groups of patients using topological data analysis based on 16 clinical features. 
+nested cross-validation
+285 patients who underwent upgrade at the Heart and Vascular Center of Semmelweis University
+multi-layer perceptron showed the best performance in 
+This repository also contains the scripts used for the training and internal validation. 
 
 The repository was forked from `szadam96\framework-for-binary-classification`. The upstream repository has been thoroughly described previously:
 > [**A machine learning framework for performing binary classification on tabular biomedical data**](https://doi.org/10.1556/1647.2023.00109)<br/>
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
+
+## Contents of the Repository
+
+
+  - `LICENSE.md` - details of the license (GNU General Public License Version 3.0)
+  - `README.md` - text file that introduces the project and explains the content of this repository
+  - `model.py` - model definition
+  - `predict.py` - run this script to predict RVEF
+  - `preprocessing.py` - functions required for preprocessing
+  - `requirements.txt` - the list of the required Python packages
+  - `rvenet-demo.ipynb` - a Jupyter Notebook for testing our deep learning model in Google Colab
 
 ## Installation
 
@@ -32,11 +48,14 @@ To risk stratify new patients using our model described in the above-referenced 
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
 
-```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model (`trained_models\mlp\model.pkl`), as well as a CSV file containing the data of three example patients (`example_data\example_data_for_risk_stratification.csv`) are provided in the repository.
+```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model (`trained_models\mlp\model.pkl`), as well as a CSV file containing the data of three example patients (`example_data\example_data_for_risk_stratification.csv`) are also provided in the repository.
+
+Dictionary of input features:
+  - `LICENSE.md` - details of the license (GNU General Public License Version 3.0)
 
 ### Training a new model for multi-class classification
 
-This repository also contains the codes that we used for training our models. If you want to train a new model for a multi-class classification task, you should run the following command:
+This repository also contains the scripts that we used for training our models. If you want to train a new model for a multi-class classification task, you should run the following command:
 
 ```
 python main.py train --data PATH_TO_CSV_FILE_WITH_DATA --config_path PATH_TO_CONFIG_FILE --target_folder PATH_TO_TARGET_FOLDER
