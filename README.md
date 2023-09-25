@@ -1,6 +1,8 @@
 # ML-based risk stratification of patients undergoing CRT upgrade
 
-The primary purpose of this repository is to enable the risk stratification of new undergoing a cardiac resynchronization therapy upgrade procedure using our machine-learning model described in the following paper:
+
+The primary purpose of this repository is to enable the risk stratification of patients undergoing a cardiac resynchronization therapy upgrade procedure using our machine-learning model described in the following paper:
+
 > [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://www.nature.com/srep/)<br/>
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b>
@@ -12,44 +14,9 @@ The repository was forked from `szadam96/framework-for-binary-classification`. T
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
 
-
-## Contents of the repository
-```
-crt-upgrade-risk-stratification
-├── bio_data
-│   └── bio_data_preprocess.py
-├── config_files
-│   ├── config_gbc.yaml
-│   ├── config_knn.yaml
-│   ├── config_logl1.yaml
-│   ├── config_logl2.yaml
-│   ├── config_mlp.yaml
-│   ├── config_radomforest.yaml
-│   ├── config_svc.yaml
-│   └── config_xgboost.yaml
-├── example_data
-│   └── example_data_for_risk_stratification.csv
-├── model
-│   ├── cross_validated_model.py
-│   ├── feature_selection.py
-│   └── other_models.py
-├── trained_models
-│   └── mlp
-│       └── model.pkl
-├── utils
-│   ├── default_hyperparameters.yaml
-│   ├── preprocess_utils.py
-│   └── utils.py
-├── LICENSE
-├── README.md
-├── main.py
-├── requirements.txt
-├── risk stratification
-└── training.py
-```
-
-
 ## Installation
+
+
   1) Clone the repository
   2) Create a virtual environment in Python (version 3.9.13) and activate it
   3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
@@ -77,7 +44,7 @@ python main.py train --data PATH_TO_CSV_FILE_WITH_DATA --config_path PATH_TO_CON
 ```
 
 ```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_CONFIG_FILE```
-is the path to the file containing the training configurations, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved.
+is the path to the file containing the training configurations, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved. Configuration files that we used in our experiments can be found in the `config_files' folder.
 
 For further information, please run the following command: <br>
 ```
