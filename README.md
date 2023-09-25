@@ -16,7 +16,7 @@ This repository also contains the scripts used for the training and internal val
 
 Tested in an additional 29 patients from an external center -> Patients predicted to be in the high-risk group showed the worst outcomes.
 
-The repository was forked from `szadam96/framework-for-binary-classification`. The upstream repository has been thoroughly described previously:
+The repository was forked from [szadam96/framework-for-binary-classification](https://github.com/szadam96/framework-for-binary-classification). The upstream repository has been thoroughly described previously:
 > [**A machine learning framework for performing binary classification on tabular biomedical data**](https://doi.org/10.1556/1647.2023.00109)<br/>
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
@@ -24,13 +24,18 @@ The repository was forked from `szadam96/framework-for-binary-classification`. T
 ## Contents of the repository
 
 
-  - `LICENSE.md` - details of the license (GNU General Public License Version 3.0)
-  - `README.md` - text file that introduces the project and explains the content of this repository
-  - `model.py` - model definition
-  - `predict.py` - run this script to predict RVEF
-  - `preprocessing.py` - functions required for preprocessing
+  - `bio_data` - functions and classes used for preprocessing
+  - `config_files` - a folder containing the configuration files used for training the models
+  - `example_data` - a folder containing example data
+  - `model` - model classes
+  - `trained_models` - the folder containing the trained model(s)
+  - `utils` - functions and classes required for the training and risk stratification scripts
+  - `LICENSE.md` - details of the license (Apache 2.0)
+  - `README.md` - a brief explanation of the purpose and content of this repository
+  - `main.py` - run this script to train a new model or perform risk stratification
   - `requirements.txt` - the list of the required Python packages
-  - `rvenet-demo.ipynb` - a Jupyter Notebook for testing our deep learning model in Google Colab
+  - `risk_tratiticaion.py' - scripts required for risk stratifying new patients using the trained model
+  - `training.py` - scripts required for training a new multi-class classifier
 
 ## Installation
 
