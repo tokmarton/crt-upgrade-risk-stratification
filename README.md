@@ -14,7 +14,6 @@ The repository was forked from `szadam96/framework-for-binary-classification`. T
 
 
 ## Contents of the repository
-```
 crt-upgrade-risk-stratification
 ├── bio_data
 │   └── bio_data_preprocess.py
@@ -46,7 +45,6 @@ crt-upgrade-risk-stratification
 ├── requirements.txt
 ├── risk stratification
 └── training.py
-```
 
 
 ## Installation
