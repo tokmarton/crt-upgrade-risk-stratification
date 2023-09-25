@@ -1,17 +1,53 @@
 # ML-based risk stratification of patients undergoing CRT upgrade
 
-
-This repository enables the training and validation of machine-learning models for multi-class classification. contains the codes to train and validate the machine-learning models described in the following paper:
+The primary purpose of this repository is to enable the risk stratification of new undergoing a cardiac resynchronization therapy upgrade procedure using our machine-learning model described in the following paper:
 > [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://www.nature.com/srep/)<br/>
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b>
 
-The repository was forked from `szadam96/framework-for-binary-classification`. The upstream repository is thoroughly described in the following paper:
+This repository enables contains the codes to train and validate the training and validation of machine-learning models for multi-class classification. 
 
-This repository enables the training and validation of machine-learning models for multi-class classification. contains the codes to train and validate the machine-learning models described in the following paper:
+The repository was forked from `szadam96/framework-for-binary-classification`. The upstream repository is thoroughly described in the following paper:
 > [**A machine learning framework for performing binary classification on tabular biomedical data**](https://doi.org/10.1556/1647.2023.00109)<br/>
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
+
+
+## Contents of the repository
+```
+crt-upgrade-risk-stratification
+├── bio_data
+│   └── bio_data_preprocess.py
+├── config_files
+│   ├── config_gbc.yaml
+│   ├── config_knn.yaml
+│   ├── config_logl1.yaml
+│   ├── config_logl2.yaml
+│   ├── config_mlp.yaml
+│   ├── config_radomforest.yaml
+│   ├── config_svc.yaml
+│   └── config_xgboost.yaml
+├── example_data
+│   └── example_data_for_risk_stratification.csv
+├── model
+│   ├── cross_validated_model.py
+│   ├── feature_selection.py
+│   └── other_models.py
+├── trained_models
+│   └── trained_models
+│       └── model.pkl
+├── utils
+│   ├── default_hyperparameters.yaml
+│   ├── preprocess_utils.py
+│   └── utils.py
+├── LICENSE
+├── README.md
+├── main.py
+├── requirements.txt
+├── risk stratification
+└── training.py
+```
+
 
 ## Installation
   1) Clone the repository
@@ -26,7 +62,7 @@ pip install -r requirements.txt
 
 ### Risk stratifying new patients using the trained model
 
-To risk stratify new patients using our model described in the above-referenced paper, you should run the following command:
+To risk stratify new patients using our model described in the above-referenced [paper](https://www.nature.com/srep/), you should run the following command:
 ```
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
