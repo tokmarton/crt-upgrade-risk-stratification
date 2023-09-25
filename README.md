@@ -5,7 +5,7 @@ This repository contains the codes to train and validate the machine learning mo
   <b>Under Review</b>
 
 ## Installation
-  1)Clone the repository
+  1) Clone the repository
   2) Create a virtual environment in Python 3.9.13 and activate it
   3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
 
