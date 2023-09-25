@@ -47,4 +47,4 @@ def risk_stratify(data_path: str, model_path: str, target_folder: str):
                             'pred_risk_group': y_pred})
     results = pd.concat([data, results], axis=1)
     results.to_csv(os.path.join(target_folder, model_path.split('\\')[-2],
-                                data_path.split('\\')[-1].split('.')[0] + '_with_preds.csv'))
+                                data_path.split('\\')[-1].split('.')[0] + '_with_preds.csv'), index=False)

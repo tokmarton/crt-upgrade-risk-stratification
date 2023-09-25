@@ -23,11 +23,6 @@ def train_and_validate_internally(data_path: str, config_path: str, target_folde
 		
 	target_folder : str
 		Path to the folder where the results will be saved
-
-    Returns
-	-------
-    results : pd.DataFrame
-        Results of the internal validation
 	"""
 
     # Create target folder

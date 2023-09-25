@@ -11,16 +11,16 @@ def main():
                         help='Train and internally validate a new model or '
                              'risk stratify new patients using a trained model',
                         choices=action_choices)
-    parser.add_argument('--data',
+    parser.add_argument('-d', '--data',
                         help='Path to the CSV file containing the dataset',
                         required=True, type=str)
-    parser.add_argument('--target_folder',
+    parser.add_argument('-t', '--target_folder',
                         help='Folder where the results will be saved',
                         required=False, default=r'.\results', type=str)
-    parser.add_argument('--config_path',
+    parser.add_argument('-c', '--config_path',
                         help='Path to the YAML file containing the configurations for the training',
                         default=None, required=('train' in argv), type=str)
-    parser.add_argument('--model_path',
+    parser.add_argument('-m', '--model_path',
                         help='Path to the trained model',
                         required=('risk_stratify' in argv), type=str)
     args = parser.parse_args()

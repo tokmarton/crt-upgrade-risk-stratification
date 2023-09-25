@@ -13,7 +13,7 @@ class BioDataPreprocess:
 	Attributes
 	----------
 	data : pd.DataFrame
-		The input data used for the training
+		The dataset used for training
 
 	target_column : str
 		The name of the column containing the labels
@@ -21,16 +21,19 @@ class BioDataPreprocess:
 	base_model 
 		The machine learning model used in the last step of the pipeline
 
-	drop_threshold: float
+    smote : bool
+        Whether Synthetic Minority Oversampling Technique (SMOTE) should be applied to tackle class imbalance
+
+	drop_threshold : float
 		The threshold for the proportion of missing values above which the row or column will be dropped
 
-	normalizer: str
+	normalizer : str
 		Name of the normalization method
 
-	categorical_impute: str
+	categorical_impute : str
 		Name of the imputation method for categorical variables
 
-	continuous_impute: str
+	continuous_impute : str
 		Name of the imputation method for continuous variables
 
 	random_state : int
@@ -49,24 +52,24 @@ class BioDataPreprocess:
         self.data = data
         self.target_column = target_column
         self.base_model = base_model
-        self.random_state = random_state
         self.smote = smote
         self.drop_threshold = drop_threshold
         self.normalizer = normalizer
         self.categorical_impute = categorical_impute
         self.continuous_impute = continuous_impute
+        self.random_state = random_state
 
     def preprocess_and_create_pipeline(self):
         """
-		Separates the data into input features and labels and creates the training pipeline
+		Splits the data into input features and labels and creates the training pipeline
 		
 		Returns
 		-------
 		X : 2D array-like
-			Array of features
+			Input features
 
 		y : 1D array-like
-			Array of labels
+			Labels
 			
 		pipeline : Pipeline
 			The training pipeline
@@ -95,7 +98,7 @@ class BioDataPreprocess:
         # Set classes to [0, 1, 2]
         y = y - 1
 
-        # Indentify continuous and categorical columns
+        # Indentify continuous and categorical features
         continuous_columns = [col for col in X if len(X[col].dropna().unique()) > 10]
         categorical_columns = [col for col in X if len(X[col].dropna().unique()) <= 10]
 

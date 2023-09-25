@@ -5,11 +5,11 @@ from sklearn.model_selection import GridSearchCV
 class FeatureSelectionCV:
     """
 	A class that fits a model with hyperparameter optimization and feature selection using cross-validation
-	Serves as the inner loop in the nested cross-validation
+	Serves as the inner loop of the nested cross-validation
 	
 	Parameters
 	----------
-	estimator :
+	estimator
 		The machine learning estimator that will be fitted
 		
 	hyper_params : dict
@@ -36,17 +36,18 @@ class FeatureSelectionCV:
 
     def __init__(self, estimator, hyper_params: dict, cv=None, scoring='balanced_accuracy', step=1, min_features=10,
                  max_features=20, score_threshold=0.95, n_jobs=10):
-        self.best_params_ = None
         self.estimator = estimator
         self.hyper_params = hyper_params
         self.cv = cv
         self.scoring = scoring
         self.step = step
-        self.score_threshold = score_threshold
         self.min_features = min_features
         self.max_features = max_features
+        self.score_threshold = score_threshold
         self.n_jobs = n_jobs
+
         self.scores = dict()
+        self.best_params_ = None
         self.score_stds = None
         self.best_estimator_ = None
         self.best_features_ = None

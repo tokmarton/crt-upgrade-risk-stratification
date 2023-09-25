@@ -16,59 +16,66 @@ class CrossValidatedModel:
 	
 	Attributes
 	----------
-	base_model :
+	base_model
 		The machine learning model that will be trained
-		
+
+	param_grid : dict
+		Dictionary of possible hyperparameters passed to grid search
+
+	scoring : str
+	    Evaluation metric
+
+	random_state : int
+		Random seed to make the cross-validation deterministic
+
+	weighted : bool
+	    Controls whether weighting should be applied
+
+	do_feature_selection : bool
+		Controls whether the training will include feature selection
+
+	feature_selection_params : dict
+		Keyword arguments for the feature selection
+
+	n_jobs : int
+		Number of jobs to run in parallelly
+
 	cv : StratifiedKFold
 		Cross-validation instance that will be used for both of the inner and outer loop of the nested cross-validation
 		
-	fit_models : 
+	fit_models : list
 		The machine learning models that have been fit with grid search on the different folds
 
-	do_feature_selection: bool
-		Controls whether the training will include feature selection
-
-	feature_selection_params: dict
-		Keyword arguments for the feature selection
-		
 	feature_selectors : list(FeatureSelectionCV)
-		The FeatureSelectionCV instance corresponding to each of the models in fit_models
+		The FeatureSelectionCV instances corresponding to each of the models in fit_models
 		
 	best_features : set(str)
 		The union of the best features selected by the feature selectors
 		
 	best_hyperparams : list(dict)
 		The best hyperparameters selected by grid search
-		
-	param_grid : dict
-		Dictionary of possible hyperparameters passed to grid search
-		
-	random_state : int
-		Random seed to make the cross-validation deterministic
-		
-	n_jobs : int
-		Number of jobs to run in parallelly
 	"""
 
     def __init__(self, base_model, param_grid, scoring, random_state, weighted=False, do_feature_selection=False,
                  feature_selection_params=None, n_jobs=10, cv=5):
         self.base_model = base_model
+        self.param_grid = param_grid
+        self.scoring = scoring
+        self.random_state = random_state
+        self.weighted = weighted
+        self.do_feature_selection = do_feature_selection
+        self.feature_selection_params = feature_selection_params
+        self.n_jobs = n_jobs
         self.cv = StratifiedKFold(n_splits=cv, shuffle=True, random_state=random_state)
+
         self.fit_models = []
         self.feature_selectors = []
         self.best_features = set()
         self.best_hyperparams = []
-        self.param_grid = param_grid
-        self.scoring = scoring
-        self.random_state = random_state
-        self.n_jobs = n_jobs
-        self.weighted = weighted
-        self.do_feature_selection = do_feature_selection
-        self.feature_selection_params = feature_selection_params
 
     def fit_gs(self, X, y):
         """
-		Fits a model on each of the CV folds using grid search
+		Fits a model on each of the cross-validation folds using grid search
 
 		Parameters:
 		-----------
@@ -101,7 +108,8 @@ class CrossValidatedModel:
 			
 		Returns
 		-------
-		Dictionary of performance metrics summarizing the results of the cross-validation
+		results : dict
+		   Performance metrics summarizing the results of the cross-validation
 		"""
 
         if len(self.fit_models) == 0:
@@ -194,7 +202,7 @@ class CrossValidatedModel:
 		Parameters
 		----------
 		X : 2D array-like
-			Array of features
+			Input features
 			
 		Returns
 		-------

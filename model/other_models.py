@@ -15,15 +15,16 @@ class CalibratedRF(BaseEstimator):
         super().__init__()
 
         self.n_estimators = n_estimators
+        self.max_features = max_features
+        self.max_depth = max_depth
         self.min_samples_split = min_samples_split
         self.min_samples_leaf = min_samples_leaf
-        self.max_depth = max_depth
-        self.max_features = max_features
         self.method = method
         self.cv = cv
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -42,8 +43,7 @@ class CalibratedRF(BaseEstimator):
 
 		Returns
 		-------
-		model : object
-			An instance of the calibrated model
+		An instance of the calibrated model
 		"""
 
         self.model = CalibratedClassifierCV(
@@ -67,8 +67,7 @@ class CalibratedRF(BaseEstimator):
 			
 		Returns
 		-------
-		C : 1D array-like
-			Predictions
+		Predictions (1D array-like)
 		"""
 
         return self.model.predict(X)
@@ -84,8 +83,7 @@ class CalibratedRF(BaseEstimator):
 			
 		Returns
 		-------
-		probas : 2D array-like
-			Predicted probabilities
+		Predicted probabilities (2D array-like)
 		"""
 
         return self.model.predict_proba(X)
@@ -108,9 +106,10 @@ class CalibratedXGBoost(BaseEstimator):
         self.method = method
         self.random_state = random_state
         self.cv = cv
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -129,8 +128,7 @@ class CalibratedXGBoost(BaseEstimator):
 
 		Returns
 		-------
-		model : object
-			An instance of the calibrated model
+		An instance of the calibrated model
 		"""
 
         self.model = CalibratedClassifierCV(
@@ -155,8 +153,7 @@ class CalibratedXGBoost(BaseEstimator):
 
         Returns
         -------
-        C : 1D array-like
-            Predictions
+		Predictions (1D array-like)
         """
 
         return self.model.predict(X)
@@ -172,8 +169,7 @@ class CalibratedXGBoost(BaseEstimator):
 
         Returns
         -------
-        probas : 2D array-like
-            Predicted probabilities
+		Predicted probabilities (2D array-like)
         """
 
         return self.model.predict_proba(X)
@@ -184,16 +180,17 @@ class CalibratedLog(BaseEstimator):
                  max_iter=10000, cv=StratifiedKFold(n_splits=10, shuffle=True, random_state=42), n_jobs=10):
         super().__init__()
 
-        self.C = C
         self.penalty = penalty
+        self.C = C
+        self.solver = solver
+        self.multi_class = multi_class
         self.method = method
         self.max_iter = max_iter
         self.cv = cv
-        self.solver = solver
-        self.multi_class = multi_class
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -210,10 +207,9 @@ class CalibratedLog(BaseEstimator):
         sample_weight : 1D array-like
             Sample weights. If None, then samples are equally weighted.
 
-        Returns
-        -------
-        model : object
-            An instance of the calibrated model
+		Returns
+		-------
+		An instance of the calibrated model
         """
 
         self.model = CalibratedClassifierCV(
@@ -236,8 +232,7 @@ class CalibratedLog(BaseEstimator):
 
         Returns
         -------
-        C : 1D array-like
-            Predictions
+		Predictions (1D array-like)
         """
 
         return self.model.predict(X)
@@ -253,8 +248,7 @@ class CalibratedLog(BaseEstimator):
 
         Returns
         -------
-        probas : 2D array-like
-            Predicted probabilities
+		Predicted probabilities (2D array-like)
         """
 
         return self.model.predict_proba(X)
@@ -266,17 +260,17 @@ class CalibratedKNN(BaseEstimator):
         super().__init__()
 
         self.n_neighbors = n_neighbors
-        self.p = p
-        self.leaf_size = leaf_size
         self.weights = weights
         self.algorithm = algorithm
+        self.leaf_size = leaf_size
+        self.p = p
+        self.metric = metric
         self.method = method
         self.cv = cv
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.metric = metric
-
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -293,10 +287,9 @@ class CalibratedKNN(BaseEstimator):
         sample_weight : 1D array-like
             Sample weights. If None, then samples are equally weighted.
 
-        Returns
-        -------
-        model : object
-            An instance of the calibrated model
+		Returns
+		-------
+		An instance of the calibrated model
         """
 
         self.model = CalibratedClassifierCV(
@@ -319,8 +312,7 @@ class CalibratedKNN(BaseEstimator):
 
         Returns
         -------
-        C : 1D array-like
-            Predictions
+		Predictions (1D array-like)
         """
 
         return self.model.predict(X)
@@ -336,8 +328,7 @@ class CalibratedKNN(BaseEstimator):
 
         Returns
         -------
-        probas : 2D array-like
-            Predicted probabilities
+		Predicted probabilities (2D array-like)
         """
 
         return self.model.predict_proba(X)
@@ -356,9 +347,10 @@ class CalibratedSVC(BaseEstimator):
         self.method = method
         self.max_iter = max_iter
         self.cv = cv
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -375,10 +367,9 @@ class CalibratedSVC(BaseEstimator):
         sample_weight : 1D array-like
             Sample weights. If None, then samples are equally weighted.
 
-        Returns
-        -------
-        model : object
-            An instance of the calibrated model
+		Returns
+		-------
+		An instance of the calibrated model
         """
 
         self.model = CalibratedClassifierCV(
@@ -400,8 +391,7 @@ class CalibratedSVC(BaseEstimator):
 
         Returns
         -------
-        C : 1D array-like
-            Predictions
+		Predictions (1D array-like)
         """
 
         return self.model.predict(X)
@@ -417,8 +407,7 @@ class CalibratedSVC(BaseEstimator):
 
         Returns
         -------
-        probas : 2D array-like
-            Predicted probabilities
+		Predicted probabilities (2D array-like)
         """
 
         return self.model.predict_proba(X)
@@ -430,17 +419,18 @@ class CalibratedMLP(BaseEstimator):
                  cv=StratifiedKFold(n_splits=10, shuffle=True, random_state=42), n_jobs=10):
         super().__init__()
 
-        self.learning_rate = learning_rate
         self.hidden_layer_sizes = hidden_layer_sizes
         self.activation = activation
         self.solver = solver
         self.alpha = alpha
+        self.learning_rate = learning_rate
         self.max_iter = max_iter
         self.method = method
         self.cv = cv
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -457,10 +447,9 @@ class CalibratedMLP(BaseEstimator):
         sample_weight : 1D array-like
             Sample weights. If None, then samples are equally weighted.
 
-        Returns
-        -------
-        model : object
-            An instance of the calibrated model
+		Returns
+		-------
+		An instance of the calibrated model
         """
 
         self.model = CalibratedClassifierCV(
@@ -484,8 +473,7 @@ class CalibratedMLP(BaseEstimator):
 
         Returns
         -------
-        C : 1D array-like
-            Predictions
+		Predictions (1D array-like)
         """
 
         return self.model.predict(X)
@@ -501,8 +489,7 @@ class CalibratedMLP(BaseEstimator):
 
         Returns
         -------
-        probas : 2D array-like
-            Predicted probabilities
+		Predicted probabilities (2D array-like)
         """
 
         return self.model.predict_proba(X)
@@ -523,9 +510,10 @@ class CalibratedGBC(BaseEstimator):
         self.max_features = max_features
         self.method = method
         self.cv = cv
+        self.n_jobs = n_jobs
+
         self.model = None
         self.classes_ = None
-        self.n_jobs = n_jobs
 
     def fit(self, X, y, sample_weight=None, **kwargs):
         """
@@ -542,10 +530,9 @@ class CalibratedGBC(BaseEstimator):
         sample_weight : 1D array-like
             Sample weights. If None, then samples are equally weighted.
 
-        Returns
-        -------
-        model : object
-            An instance of the calibrated model
+		Returns
+		-------
+		An instance of the calibrated model
         """
 
         self.model = CalibratedClassifierCV(
@@ -571,8 +558,7 @@ class CalibratedGBC(BaseEstimator):
 
         Returns
         -------
-        C : 1D array-like
-            Predictions
+		Predictions (1D array-like)
         """
 
         return self.model.predict(X)
@@ -588,8 +574,7 @@ class CalibratedGBC(BaseEstimator):
 
         Returns
         -------
-        probas : 2D array-like
-            Predicted probabilities
+		Predicted probabilities (2D array-like)
         """
 
         return self.model.predict_proba(X)
