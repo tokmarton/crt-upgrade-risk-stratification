@@ -19,7 +19,7 @@ The repository was forked from `szadam96\framework-for-binary-classification`. T
 
   1) Clone the repository
   2) Create a virtual environment in Python (version 3.9.13) and activate it
-  3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
+  3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment<br/>
      ```
      pip install -r requirements.txt
      ```
