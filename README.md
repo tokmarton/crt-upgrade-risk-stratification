@@ -1,13 +1,13 @@
 # ML-based risk stratification of patients undergoing CRT upgrade
-
-> [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://doi.org/10.1016/j.jcmg.2023.02.017)<br/>
+This repository contains the codes to train and validate the machine learning models described in the following paper:
+> [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://www.nature.com/srep/)<br/>
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Szijártó Ádám, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b>
 
 ## Installation
-The installation is done using conda with the following command:
-  1) Create a virtual environment in Python 3.9.13 and activate it
-  2) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
+  1)Clone the repository
+  2) Create a virtual environment in Python 3.9.13 and activate it
+  3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
 
 ```
 conda env create -f environment.yml
