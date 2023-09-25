@@ -1,14 +1,14 @@
-# ML framework for binary classification
-This framework makes it possible to train and evalute multiple machine learning model for binary classification for biomedical data. The supported models are:
-- Random Forest
-- Support Vector Machine
-- Logistic Regression
-- K-Nearest Neighbor Classifier
-- Multi-Layer Perceptron
-- Gradient Boosting Classifier
-- XGBoost
+# ML-based risk stratification of patients undergoing CRT upgrade
+
+[**Deep Learning-Based Prediction of Right Ventricular Ejection Fraction Using 2D Echocardiograms**](https://doi.org/10.1016/j.jcmg.2023.02.017)<br/>
+  Márton Tokodi, Bálint Magyar, András Soós, Masaaki Takeuchi, Máté Tolvaj, Bálint K. Lakatos, Tetsuji Kitano, Yosuke Nabeshima, Alexandra Fábián, Mark B. Szigeti, András Horváth, Béla Merkely, and Attila Kovács<br/>
+  <b>JACC: Cardiovascular Imaging</b> (2023)
+
 ## Installation
 The installation is done using conda with the following command:
+  1) Create a virtual environment in Python 3.9.13 and activate it
+  2) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
+
 ```
 conda env create -f environment.yml
 ```
@@ -19,7 +19,7 @@ You can train and evaluating a new model from scratch on your training data usin
 python run.py --data PATH_TO_DATA_CSV --target_folder TARGET_FOLDER --config_path PATH_TO_CONFIG_YAML [--calculate_feature_importances] train
 ```
 Where ```PATH_TO_DATA_CSV``` is the path to the training data in a csv format, ```TARGET_FOLDER``` is the name of the folder the results will be saved, and ```PATH_TO_CONFIG_YAML``` is the yaml file containing the cofigurations of the training. An example config file has been provided. The feature importances of the model can be calculated using the SHAP library by using the ```--calculate_feature_importances``` flag.
-### Evaluation
+### Risk stratifying new patients using the trained model
 The evaluation of a trained model on an external dataset can ben done using the following command:
 ```
 python run.py --data PATH_TO_DATA_CSV --model_path MODEL_PATH --target_column TARGET_COLUMN --target_folder TARGET_FOLDER [--calculate_feature_importances] evaluate
@@ -32,9 +32,7 @@ python run.py --data PATH_TO_DATA_CSV --model_path MODEL_PATH --target_folder TA
 ```
 Where ```PATH_TO_DATA_CSV``` is the path to the external dataset in a csv format, ```MODEL_PATH``` is the path to the trained and saved model that is to be used for prediction, and ```TARGET_FOLDER``` is the name of the folder the predicted probabilities will be saved.
 
-### Outlier detection
-To run the outlier detection use the following command:
+For further information, please run the following command: <br>
 ```
-python run.py --data PATH_TO_DATA_CSV --target_folder TARGET_FOLDER detect_outliers
+python main.py --help
 ```
-Where ```PATH_TO_DATA_CSV``` is the path to the external dataset in a csv format, and ```TARGET_FOLDER``` is the name of the folder the possible outliers will be saved.
