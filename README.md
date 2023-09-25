@@ -24,7 +24,8 @@ To risk stratify new patients using our model described in the above-referenced 
 ```
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
-Where ```PATH_TO_DATA_CSV``` is the path to the training data in a csv format, ```TARGET_FOLDER``` is the name of the folder the results will be saved, and ```PATH_TO_CONFIG_YAML``` is the yaml file containing the cofigurations of the training. An example config file has been provided. The feature importances of the model can be calculated using the SHAP library by using the ```--calculate_feature_importances``` flag.
+```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The training model, as well as a CSV file with the data of three example patients, are provided in the repository.
+
 ### Risk stratifying new patients using the trained model
 The evaluation of a trained model on an external dataset can ben done using the following command:
 ```
