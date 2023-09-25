@@ -1,8 +1,8 @@
 # ML-based risk stratification of patients undergoing CRT upgrade
 
-> [**Deep Learning-Based Prediction of Right Ventricular Ejection Fraction Using 2D Echocardiograms**](https://doi.org/10.1016/j.jcmg.2023.02.017)<br/>
-  Márton Tokodi, Bálint Magyar, András Soós, Masaaki Takeuchi, Máté Tolvaj, Bálint K. Lakatos, Tetsuji Kitano, Yosuke Nabeshima, Alexandra Fábián, Mark B. Szigeti, András Horváth, Béla Merkely, and Attila Kovács<br/>
-  <b>JACC: Cardiovascular Imaging</b> (2023)
+> [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://doi.org/10.1016/j.jcmg.2023.02.017)<br/>
+  Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Szijártó Ádám, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
+  <b>Under Review</b>
 
 ## Installation
 The installation is done using conda with the following command:
