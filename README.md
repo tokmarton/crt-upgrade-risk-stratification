@@ -19,10 +19,7 @@ The repository was forked from `szadam96\framework-for-binary-classification`. T
 
   1) Clone the repository
   2) Create a virtual environment in Python (version 3.9.13) and activate it
-  3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment<br/>
-     ```
-     pip install -r requirements.txt
-     ```
+  3) Install the required Python packages (listed in `requirements.txt`) in the virtual environment
 
 ## Usage
 
@@ -30,15 +27,17 @@ The repository was forked from `szadam96\framework-for-binary-classification`. T
 ### Risk stratifying new patients using the trained model
 
 To risk stratify new patients using our model described in the above-referenced [paper](https://www.nature.com/srep/), you should run the following command:
+
 ```
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
 
-```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model can be found in `trained_models\mlp\model.pkl` and a CSV file containing the data of three example patients in `example_data\example_data_for_risk_stratification.csv`.
+```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model (`trained_models\mlp\model.pkl`), as well as a CSV file containing the data of three example patients (`example_data\example_data_for_risk_stratification.csv`) are provided in the repository.
 
 ### Training a new model for multi-class classification
 
 This repository also contains the codes that we used for training our models. If you want to train a new model for a multi-class classification task, you should run the following command:
+
 ```
 python main.py train --data PATH_TO_CSV_FILE_WITH_DATA --config_path PATH_TO_CONFIG_FILE --target_folder PATH_TO_TARGET_FOLDER
 ```
