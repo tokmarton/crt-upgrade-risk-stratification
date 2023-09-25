@@ -24,18 +24,18 @@ The repository was forked from [szadam96/framework-for-binary-classification](ht
 ## Contents of the repository
 
 
-  - `bio_data` - functions and classes used for preprocessing
+  - `bio_data` - the collection of functions and classes used for preprocessing
   - `config_files` - a folder containing the configuration files used for training the models
   - `example_data` - a folder containing example data
   - `model` - model classes
-  - `trained_models` - the folder containing the trained model(s)
-  - `utils` - functions and classes required for the training and risk stratification scripts
-  - `LICENSE.md` - details of the license (Apache 2.0)
+  - `trained_models` - a folder containing the trained model(s)
+  - `utils` - the collection of functions required for the training and risk stratification scripts
+  - `LICENSE.md` - the details of the license (Apache 2.0)
   - `README.md` - a brief explanation of the purpose and content of this repository
   - `main.py` - run this script to train a new model or perform risk stratification
   - `requirements.txt` - the list of the required Python packages
-  - `risk_tratiticaion.py' - scripts required for risk stratifying new patients using the trained model
-  - `training.py` - scripts required for training a new multi-class classifier
+  - `risk_stratification.py` - the scripts required for risk stratifying new patients using the trained model
+  - `training.py` - the scripts required for training a new multi-class classifier
 
 ## Installation
 
