@@ -70,7 +70,7 @@ python main.py train --data PATH_TO_CSV_FILE_WITH_DATA --config_path PATH_TO_CON
 ```
 
 ```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_CONFIG_FILE```
-is the path to the file containing the training configurations, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved. Configuration files that we used in our experiments can be found in the `config_files' folder.
+is the path to the file containing the training configurations, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved. Configuration files that we used in our experiments can be found in the `config_files` folder.
 
 For further information, please run the following command: <br>
 ```
