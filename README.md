@@ -14,6 +14,7 @@ The repository was forked from `szadam96/framework-for-binary-classification`. T
 
 
 ## Contents of the repository
+```
 crt-upgrade-risk-stratification
 ├── bio_data
 │   └── bio_data_preprocess.py
@@ -33,7 +34,7 @@ crt-upgrade-risk-stratification
 │   ├── feature_selection.py
 │   └── other_models.py
 ├── trained_models
-│   └── trained_models
+│   └── mlp
 │       └── model.pkl
 ├── utils
 │   ├── default_hyperparameters.yaml
@@ -45,6 +46,7 @@ crt-upgrade-risk-stratification
 ├── requirements.txt
 ├── risk stratification
 └── training.py
+```
 
 
 ## Installation
@@ -65,7 +67,7 @@ To risk stratify new patients using our model described in the above-referenced 
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
 
-```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The training model, as well as a CSV file containing the data of three example patients, are provided in the repository.
+```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model can be found in `trained_models\mlp\model.pkl` and a CSV file containing the data of three example patients in `example_data\example_data_for_risk_stratification.csv`.
 
 ### Training a new model for multi-class classification
 
