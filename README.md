@@ -55,7 +55,7 @@ The repository was forked from [szadam96/framework-for-binary-classification](ht
 
 ### Risk stratifying new patients using the trained model
 
-To risk stratify new patients using our model described in the above-referenced [paper](https://www.nature.com/srep/), you should run the following command:
+To risk stratify new patients using our model (i.e., an ensemble of 5 multi-layer perceptrons) described in the above-referenced [paper](https://www.nature.com/srep/), you should run the following command:
 
 ```
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
