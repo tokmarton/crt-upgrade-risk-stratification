@@ -1,7 +1,7 @@
 # ML-based risk stratification of patients undergoing CRT upgrade
 
 
-The primary purpose of this repository is to enable the risk stratification of patients without undergoing a cardiac resynchronization therapy (CRT) upgrade procedure using our machine-learning model described in the following paper:
+The primary purpose of this repository is to enable the risk stratification of patients undergoing a cardiac resynchronization therapy (CRT) upgrade procedure using our machine-learning model described in the following paper:
 
 > [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://www.nature.com/srep/)<br/>
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
