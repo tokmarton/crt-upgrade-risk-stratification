@@ -7,7 +7,7 @@ The primary purpose of this repository is to enable the risk stratification of p
   Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b> (2023)
 
-In this study, we first applied topological data analysis to create a patient similarity network using 16 clinical features of 326 patients (without an implantable cardioverter-defibrillator or a history of ventricular arrhythmias) who underwent a CRT upgrade procedure. Then, in the generated circular topological network, we delineated three distinct risk groups (i.e., phenogroups) using community autogrouping (<b>Figure 1A</b>) that differed not only in their clinical characteristics but also showed differences in the risk of all-cause mortality (<b>Figure 1B</b>).
+In this study, we first applied topological data analysis to create a patient similarity network using 16 clinical features of 326 patients (without an implantable cardioverter-defibrillator or a history of ventricular arrhythmias) who underwent a CRT upgrade procedure. Then, in the generated circular topological network, we delineated three distinct groups (i.e., phenogroups) using community autogrouping (<b>Figure 1A</b>) that differed not only in their clinical characteristics but also showed differences in the risk of all-cause mortality (<b>Figure 1B</b>).
 
 ![Topological network and KM curves of the risk groups in the derivation cohort](figs/Fig1-01.png)
 <div align="center"><i><b>Figure 1</b> (A) Patient similarity network created using topological data analysis and (B) the Kaplan-Meier curves depicting the survival of the three risk groups</i></div><br/>
@@ -17,7 +17,7 @@ Finally, we labeled the patients based on their location in the network (i.e., w
 ![KM curves of risk groups in the external dataset](figs/Fig2-01.png)
 <div align="center"><i><b>Figure 2</b> Kaplan-Meier curves depicting the survival of the three risk groups in the external dataset</i></div><br/>
 
-The repository was forked from [szadam96/framework-for-binary-classification](https://github.com/szadam96/framework-for-binary-classification), which we have thoroughly described in this paper:
+Of note, this repository was forked from [szadam96/framework-for-binary-classification](https://github.com/szadam96/framework-for-binary-classification), which we have thoroughly described in this paper:
 > [**A machine learning framework for performing binary classification on tabular biomedical data**](https://doi.org/10.1556/1647.2023.00109)<br/>
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
