@@ -16,7 +16,7 @@ This repository also contains the scripts used for the training and internal val
 
 Tested in an additional 29 patients from an external center -> Patients predicted to be in the high-risk group showed the worst outcomes.
 
-The repository was forked from [szadam96/framework-for-binary-classification](https://github.com/szadam96/framework-for-binary-classification). The upstream repository has been thoroughly described previously:
+The repository was forked from [szadam96/framework-for-binary-classification](https://github.com/szadam96/framework-for-binary-classification), which we have thoroughly described in this paper:
 > [**A machine learning framework for performing binary classification on tabular biomedical data**](https://doi.org/10.1556/1647.2023.00109)<br/>
   Ádám Szijártó, Alexandra Fábián, Bálint Károly Lakatos, Máté Tolvaj, Béla Merkely, Attila Kovács, Márton Tokodi<br/>
   <b>IMAGING</b> (2023)
@@ -55,11 +55,25 @@ To risk stratify new patients using our model described in the above-referenced 
 python main.py risk_stratify --data PATH_TO_CSV_FILE_WITH_DATA --target_folder PATH_TO_TARGET_FOLDER --model_path PATH_TO_TRAINED_MODEL
 ```
 
-```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model (`trained_models/mlp/model.pkl`), as well as a CSV file containing the data of three example patients (`example_data/example_data_for_risk_stratification.csv`), are also provided in the repository.
+```PATH_TO_CSV_FILE_WITH_DATA``` is the path to the CSV file containing the data of new patients, ```PATH_TO_TARGET_FOLDER``` is the path to the folder where the prediction results will be saved, and ```PATH_TO_TRAINED_MODEL``` is the path to the trained model. The trained model (`trained_models/mlp/model.pkl`), as well as a CSV file containing the data of three example patients (`example_data/example_data_for_risk_stratification.csv`), are also provided in the repository. We recommend entering your data in the provided template without changing the order and names of the columns.  
 
 Dictionary of input features:
   - `age`: age at the CRT upgrade procedure (years)
-  - `sex`: 0 - male, 1 - female
+  - `sex`: sex of the patient (0 - male, 1 - female)
+  - `crt_d`: type of the implanted device (0 - CRT-P, 1 - CRT-D)
+  - `nyha`: NYHA functional class prior to the upgrade procedure (1 - I, 2 - II, 3 - III, 4 - IV)
+  - `afib`: history of atrial fibrillation (0 - no, 1 - yes)
+  - `htn`: hypertension (0 - no, 1 - yes)
+  - `diabetes`: diebetes mellitus (0 - no, 1 - yes)
+  - `etiology`: etiology of heart failure (0 - non-ischemic, 1 - ischemic)
+  - `mi`: history of myocardial infarction (0 - no, 1 - yes)
+  - `pci`: history of percutaneous coronary intervention (0 - no, 1 - yes)
+  - `cabg`: history of coronary artery bypass graft surgery (0 - no, 1 - yes)
+  - `creat`: serum creatinine (µmol/L)
+  - `gfr`: glomerular filtration rate calculated based on the MDRD formula (mL/min/1.73 m<sup>2</sup>)
+  - `lvef`: left ventricular ejection fraction measured using echocardiography (%)
+  - `lvidd`: left ventricular internal diameter at end-diastole measured using echocardiography (mm)
+  - `lvids`: left ventricular internal diameter at end-systole measured using echocardiography (mm)
 
 ### Training a new model for multi-class classification
 
