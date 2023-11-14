@@ -4,7 +4,7 @@
 The primary purpose of this repository is to enable the risk stratification of patients undergoing a cardiac resynchronization therapy (CRT) upgrade procedure using our machine-learning model described in the following paper:
 
 > [**Phenogrouping patients undergoing cardiac resynchronization therapy upgrade using topological data analysis**](https://www.nature.com/srep/)<br/>
-  Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Masszi Richárd, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
+  Walter Richard Schwertner, Márton Tokodi, Boglárka Veres, Anett Behon, Eperke Dóra Merkel, Richárd Masszi, Luca Kuthi, Ádám Szijártó, Attila Kovács, István Osztheimer, Endre Zima, László Gellér, Béla Merkely, Annamária Kosztin, Dávid Becker<br/>
   <b>Under Review</b> (2023)
 
 In this study, we first applied topological data analysis to create a patient similarity network using 16 clinical features of 326 patients (without an implantable cardioverter-defibrillator or a history of ventricular arrhythmias) who underwent a CRT upgrade procedure. Then, in the generated circular topological network, we delineated three distinct groups (i.e., phenogroups) using community autogrouping (<b>Figure 1A</b>) that differed not only in their clinical characteristics but also showed differences in the risk of all-cause mortality (<b>Figure 1B</b>).
